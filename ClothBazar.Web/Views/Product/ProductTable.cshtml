@@ -1,0 +1,43 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "ProductTable";
+}
+
+<h2>ProductTable</h2>
+
+
+<div>
+    <form method="post" action="~/Product/ProductTable">
+        <input name="Search" value="" />
+        <button>Search</button>
+        <button>New</button>
+    </form>
+</div>
+
+<table class="table table-striped table-hover">
+
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>-</td>
+                <td>@product.Price</td>
+                <td>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
